@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from './Header'
+
 
 const Coins = () => {
   return (
-    <div>Coins</div>
+    <div>
+      <Header/>
+    </div>
   )
 }
 
