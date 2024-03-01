@@ -19,13 +19,23 @@
 
 .btns button{
    height: 2rem;
-   background-color: orange;
+   background-color: black;
+   color: wheat;
+   cursor: pointer;
    border: none;
    margin-left: 30px;
    width: 5rem;
    border-radius: 10px;
    margin-top: 60px;
+   transition: all 0.3s ease;
 }
+
+.btns button:hover{
+    background-color: wheat;
+    color: black;
+
+}
+
 .btns{
     margin-left: 12rem;
 }

@@ -3,19 +3,29 @@ import Header from './Header'
 import axios from "axios"
 import { Baseurl } from './baseUrl'
 import Loader from './Loader'
-// import coin from '../coin.png'
-// import eth from '../eth.png'
 import './Exchanges.css'
-// import OurModel from './OurModel'
+
 const Exchanges = () => {
   const [loading, setLoading]=useState(true)
   const[exchanges, setExchanges]=useState([])
+
+  
+
   useEffect(()=>{
     const getExchangesData=async()=>{
-      const {data} =await axios.get(`${Baseurl}/exchanges`)
-      console.log(data)
-      setExchanges(data)
-      setLoading(false)
+
+        try {
+            const {data} =await axios.get(`${Baseurl}/exchanges`)
+            console.log(data)
+            setExchanges(data)
+            setLoading(false)
+            
+        } catch (error) {
+            console.log(error)
+            setLoading(false)
+            
+        }
+
     }
     getExchangesData() 
   },[])
@@ -25,12 +35,12 @@ const Exchanges = () => {
      {
       loading ? <Loader/> : <> 
        <Header/>
-       {/* <OurModel/>  */}
+       
    <div>
      {
-      exchanges.map((item,i)=>{
+      exchanges.map((item,index)=>{
         return(
-          <div key={i} className='ex-cards'>
+          <div key={index} className='ex-cards'>
           <div className="image">
             <img height={"80px"} src={item.image} alt="" />
           </div>
