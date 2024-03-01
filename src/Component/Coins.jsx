@@ -3,6 +3,7 @@ import Header from './Header';
 import { Baseurl } from './baseUrl';
 import Loader from './Loader';
 import axios from "axios";
+import {Link} from 'react-router-dom'
 
 const Coins = () => {
   const [loading, setLoading] = useState(true);
@@ -38,7 +39,7 @@ const Coins = () => {
           </div>
           <div>
             {coins.map((coinitem, i) => (
-             <CardComponent key={i} coinitem={coinitem} i={i} symbol = {symbol}/>
+             <CardComponent key={i} id = {coinitem.id} coinitem={coinitem} i={i} symbol = {symbol}/>
             ))}
           </div>
         </>
@@ -47,10 +48,11 @@ const Coins = () => {
   );
 };
 
-const CardComponent = ({coinitem,i,symbol})=>{
+const CardComponent = ({coinitem,i,symbol,id})=>{
   const profit = coinitem.price_change_percentage_24h > 0;
   return (
-    <div key={i} className='ex-cards'>
+  <Link to={`/coins/${id}`} style={{textDecoration:'none', color:'wheat'}}>
+     <div key={i} className='ex-cards'>
     <div className="image">
       <img height={"80px"} src={coinitem.image} alt="" />
     </div>
@@ -60,10 +62,12 @@ const CardComponent = ({coinitem,i,symbol})=>{
     <div className="price">
      {symbol} {coinitem.current_price.toFixed(0)}
     </div>
-    <div className="rank">
+
+    <div style={profit?{color:'#90EE90'}:{color:'tomato'}} className='rank' >
       { profit ? '+'  + coinitem.price_change_percentage_24h.toFixed(2) : coinitem.price_change_percentage_24h.toFixed(2)}
     </div>
   </div>
+  </Link>
 
   )
 }
