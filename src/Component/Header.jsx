@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className='navbar'>
         <div className="logo">
-            <h1>CryptoPulse</h1>
+            <Link to='/'>CryptoPulse</Link>
             <FaBitcoin color='gold' size={'25'} />
         </div>
         <ul>

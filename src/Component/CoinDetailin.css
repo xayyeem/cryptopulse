@@ -1,6 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html body{
+    height: 100vhsss;
+    width: 100%;
+}
+
 .coin-details {
     padding-left: 120px;
     padding-top: 50px;
+}
+.pos{
+    position: absolute;
+    top: 80%;
+    right: 20%;
 }
 
 .time {

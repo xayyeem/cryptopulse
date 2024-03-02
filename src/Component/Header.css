@@ -7,13 +7,15 @@
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
+    height: 50px;
 }
-.navbar .logo h1{
+.navbar .logo a{
+    text-decoration: none;
     color: gold;
 }
 .navbar ul{
